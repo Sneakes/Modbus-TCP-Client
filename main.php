@@ -15,17 +15,14 @@ $ip = readline("Saisissez une adresse IP: ");
 $protocol = readLine("Protocole (TCP ou UDP): ")
 $modbus = new ModbusMaster($ip, $protocol);
 
-// Create a protocol specific socket 
+/*
 if ($this->socket_protocol == "TCP"){ 
-    // TCP socket
     $this->sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);      
 } elseif ($this->socket_protocol == "UDP"){
-    // UDP socket
     $this->sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
 } else {
     throw new Exception("Unknown socket protocol, should be 'TCP' or 'UDP'");
 }
-// Bind the client socket to a specific local port
 if (strlen($this->client)>0){
     $result = socket_bind($this->sock, $this->client, $this->client_port);
     if ($result === false) {
@@ -43,14 +40,14 @@ if ($result === false) {
 } else {
     $this->status .= "Connected\n";
     return true;        
-}
+}*/
 
 do {
     afficher_menu();
     $choix = readline("Choisissez une option: ");
     switch ($choix) {
         case 1:
-            // code pour l'option 1
+            
             break;
         case 2:
             // code pour l'option 2
