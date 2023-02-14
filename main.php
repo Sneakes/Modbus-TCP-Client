@@ -24,7 +24,7 @@ function afficher_menu() {
 //FC23 - Read/Write multiple registers
 
 $ip = readline("Saisissez une adresse IP: ");
-$protocol = readLine("Protocole (TCP ou UDP): ")
+$protocol = readLine("Protocole (TCP ou UDP): ");
 $modbus = new ModbusMaster($ip, $protocol);
 
 /*
@@ -57,6 +57,7 @@ if ($result === false) {
 do {
     afficher_menu();
     $choix = readline("Choisissez une option: ");
+    system('clear');
     switch ($choix) {
         case 1:
             $unitID = readline("Adresse automate (0): ");
