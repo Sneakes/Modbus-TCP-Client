@@ -24,7 +24,7 @@ do
     switch ($choix)
     {
         case 1:
-            echo "Option : Read Coils";
+            echo "Option : Read Coils\n";
             $unitID = readline("Adresse automate (0): ");
             $reference = readline("Lire à partir du bit: ");
             $quantity = readline("Saisir quantité de bits: ");
@@ -38,13 +38,13 @@ do
                 echo $e;
                 exit;
             }
-            echo "</br>Status:</br>" . $modbus;
-            echo "</br>Data:</br>";
+            echo "\nStatus:\n" . $modbus;
+            echo "\nData:\n";
             var_dump($recData);
-            echo "</br>";
+            echo "\n";
         break;
         case 2:
-            echo "Option : Read Input Discretes";
+            echo "Option : Read Input Discretes\n";
             $unitID = readline("Adresse automate (0): ");
             $reference = readline("Lire à partir du bit: ");
             $quantity = readline("Saisir quantité de bits: ");
@@ -58,13 +58,13 @@ do
                 echo $e;
                 exit;
             }
-            echo "</br>Status:</br>" . $modbus;
-            echo "</br>Data:</br>";
+            echo "\nStatus:\n" . $modbus;
+            echo "\nData:\n";
             var_dump($recData);
-            echo "</br>";
+            echo "\n";
         break;
         case 3:
-            echo "Option : Read Multiple Registers";
+            echo "Option : Read Multiple Registers\n";
             $unitID = readline("Adresse automate (0): ");
             $reference = readline("Lire à partir du bit: ");
             $quantity = readline("Saisir quantité de bits: ");
@@ -78,13 +78,13 @@ do
                 echo $e;
                 exit;
             }
-            echo "</br>Status:</br>" . $modbus;
-            echo "</br>Data:</br>";
+            echo "\nStatus:\n" . $modbus;
+            echo "\nData:\n";
             var_dump($recData);
-            echo "</br>";
+            echo "\n";
         break;
         case 4:
-            echo "Option : Write Multiple Coils";
+            echo "Option : Write Multiple Coils\n";
             $unitID = readline("Adresse automate (0): ");
             $reference = readline("Lire à partir du bit: ");
             $nb = readline();
@@ -110,5 +110,5 @@ do
             echo "Choix invalide. Veuillez choisir une option entre 0 et 4.\n";
         break;
     }
-}
+} while ($choix != 0);
 ?>
