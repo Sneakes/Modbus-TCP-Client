@@ -94,6 +94,7 @@ do
                 for ($i = 1; $i <= $nb; $i++) {
                 $data[] = readline($i." : ");
                 }
+            }
             try
             {
                 $modbus->writeMultipleCoils($unitID, $reference, $data);
@@ -103,12 +104,11 @@ do
                 echo $modbus;
                 echo $e;
                 exit;
-            }}
+            }
         break;
         default:
-            echo "Choix invalide. Veuillez choisir une option entre 0 et 6.\n";
+            echo "Choix invalide. Veuillez choisir une option entre 0 et 4.\n";
         break;
-    
     }
 }
 ?>
