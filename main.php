@@ -60,27 +60,38 @@ do {
     switch ($choix) {
         case 1:
             $unitID = readline("Adresse automate (0): ");
-            $unitID = readline("Adresse automate (0): ");
-            $unitID = readline("Adresse automate (0): ");
+            $reference = readline("Lire à partir du bit: ");
+            $quantity = readline("Saisir quantité de bits: ");
             try {
-                $recData = $modbus->readCoils($unitID, 12288, 12);
+                $recData = $modbus->readCoils($unitID, $reference, $quantity);
             }
             catch (Exception $e) {
                 echo $modbus;
                 echo $e;
                 exit;
             }
-            
-            // Print status information
             echo "</br>Status:</br>" . $modbus;
-            
-            // Print read data
             echo "</br>Data:</br>";
             var_dump($recData); 
             echo "</br>";
             break;
         case 2:
-            // code pour l'option 2
+            //dire qu'elle option est en cours
+            $unitID = readline("Adresse automate (0): ");
+            $reference = readline("Lire à partir du bit: ");
+            $quantity = readline("Saisir quantité de bits: ");
+            try {
+                $recData = $modbus->readInputDiscretes($unitID, $reference, $quantity);
+            }
+            catch (Exception $e) {
+                echo $modbus;
+                echo $e;
+                exit;
+            }
+            echo "</br>Status:</br>" . $modbus;
+            echo "</br>Data:</br>";
+            var_dump($recData); 
+            echo "</br>";
             break;
         case 3:
             // code pour l'option 3
