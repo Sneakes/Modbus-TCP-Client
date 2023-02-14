@@ -3,13 +3,25 @@ require_once dirname(__FILE__) . '/lib/ModbusMaster.php';
 
 function afficher_menu() {
     echo "Menu:\n";
-    echo "1. Option 1\n";
-    echo "2. Option 2\n";
-    echo "3. Option 3\n";
-    echo "4. Option 4\n";
-    echo "5. Option 5\n";
+    echo "1. Read coils\n";
+    echo "2. Read input discretes\n";
+    echo "3. Read holding registers\n";
+    echo "4. Write single coil\n";
+    echo "5. Write single register\n";
+    echo "6. Write multiple coils\n";
+    echo "7. Write multiple registers\n";
     echo "0. Quitter\n";
 }
+
+//FC1 - Read coils
+//FC2 - Read input discretes
+//FC3 - Read holding registers
+//FC4 - Read holding input registers
+//FC5 - Write single coil
+//FC6 - Write single register
+//FC15 - Write multiple coils
+//FC16 - Write multiple registers
+//FC23 - Read/Write multiple registers
 
 $ip = readline("Saisissez une adresse IP: ");
 $protocol = readLine("Protocole (TCP ou UDP): ")
@@ -47,7 +59,25 @@ do {
     $choix = readline("Choisissez une option: ");
     switch ($choix) {
         case 1:
+            $unitID = readline("Adresse automate (0): ");
+            $unitID = readline("Adresse automate (0): ");
+            $unitID = readline("Adresse automate (0): ");
+            try {
+                $recData = $modbus->readCoils($unitID, 12288, 12);
+            }
+            catch (Exception $e) {
+                echo $modbus;
+                echo $e;
+                exit;
+            }
             
+            // Print status information
+            echo "</br>Status:</br>" . $modbus;
+            
+            // Print read data
+            echo "</br>Data:</br>";
+            var_dump($recData); 
+            echo "</br>";
             break;
         case 2:
             // code pour l'option 2
@@ -69,20 +99,6 @@ do {
             break;
     }
 } while ($choix != 0);
-
-//FC1 - Read coils
-//FC2 - Read input discretes
-//FC3 - Read holding registers
-//FC4 - Read holding input registers
-//FC5 - Write single coil
-//FC6 - Write single register
-//FC15 - Write multiple coils
-//FC16 - Write multiple registers
-//FC23 - Read/Write multiple registers
-
-
-
-
 
 
 
