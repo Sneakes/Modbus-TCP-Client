@@ -106,6 +106,9 @@ do
                 exit;
             }
         break;
+        case 0:
+            echo "Au Revoir !";
+        break;
         default:
             echo "Choix invalide. Veuillez choisir une option entre 0 et 4.\n";
         break;
