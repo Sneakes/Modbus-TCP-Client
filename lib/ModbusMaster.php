@@ -90,7 +90,7 @@ class ModbusMaster {
     if (strlen($this->client)>0){
         $result = socket_bind($this->sock, $this->client, $this->client_port);
         if ($result === false) {
-            throw new Exception("socket_bind() failed.</br>Reason: ($result)".
+            throw new Exception("socket_bind() failed.\nReason: ($result)".
                 socket_strerror(socket_last_error($this->sock)));
         } else {
             $this->status .= "Bound\n";
@@ -99,7 +99,7 @@ class ModbusMaster {
     // Connect the socket
     $result = @socket_connect($this->sock, $this->host, $this->port);
     if ($result === false) {
-        throw new Exception("socket_connect() failed.</br>Reason: ($result)".
+        throw new Exception("socket_connect() failed.\nReason: ($result)".
             socket_strerror(socket_last_error($this->sock)));
     } else {
         $this->status .= "Connected\n";
