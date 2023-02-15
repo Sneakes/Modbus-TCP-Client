@@ -87,7 +87,7 @@ do
             echo "Option : Write Multiple Coils\n";
             $unitID = readline("Adresse automate (0): ");
             $reference = readline("Lire à partir du bit: ");
-            $nb = readline();
+            $nb = readline("Nombre de bits à écrire: ");
             $data = [];
 
             if (is_numeric($nb)) {
